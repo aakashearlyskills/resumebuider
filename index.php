@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="icon" type="image/x-icon" href="earlyskills.jpg">
     <style>
         body {
             background-color: #f4f6f8;
@@ -263,8 +264,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-12 mb-4">
                 <div class="form-section">
-                    <h2>Early Skills Resume Builder <button type="button" class="btn btn-custom" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Ask To Chat BOT</button></h2>
+                    <h2>Early Skills Resume Builder</h2>
                     <form id="resumeForm">
                         <div class="form-group mb-3">
                             <div class="row">
@@ -274,7 +274,8 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <label for="email">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="email@example.com">
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <label for="phone">Phone <span class="text-danger">*</span></label>
@@ -391,33 +392,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ask Me</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="ChatBotForm">
-                        <div class="mb-3">
-                            <label for="inputmessage" class="form-label">Your Question</label>
-                            <input type="text" class="form-control" id="inputmessage" aria-describedby="messageHelp">
-                            <div id="messageHelp" class="form-text">I will assist you.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="resultArea" class="form-label">Response</label>
-                            <textarea class="form-control" id="resultArea" rows="3" readonly></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="ChatBotBtn" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -580,33 +555,7 @@
             });
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            $('#ChatBotBtn').click(function (e) {
-                e.preventDefault(); // Prevent form submission
 
-                // Get the user's question
-                var userMessage = $('#inputmessage').val();
-
-                // Make the AJAX request
-                $.ajax({
-                    url: 'chatgpt.php', // Point to the PHP file
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        message: userMessage
-                    }),
-                    success: function (response) {
-                        // Show the response in the text area
-                        $('#resultArea').val(response.response);
-                    },
-                    error: function () {
-                        $('#resultArea').val('An error occurred. Please try again.');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
